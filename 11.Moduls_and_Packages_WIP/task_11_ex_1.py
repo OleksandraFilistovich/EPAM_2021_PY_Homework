@@ -26,6 +26,7 @@ def enclosing_function():
     def inner_function():
         a = 'I am local variable!'
         print(a)
+    inner_function()
 
 
 def print_global():
@@ -36,8 +37,9 @@ def print_global():
     a = 'I am variable from enclosed function!'
 
     def inner_function():
-        a = 'I am local variable!'
+        global a
         print(a)
+    inner_function()
 
 
 def print_enclosed():
@@ -49,8 +51,9 @@ def print_enclosed():
     a = 'I am variable from enclosed function!'
 
     def inner_function():
-        a = 'I am local variable!'
+        nonlocal a
         print(a)
+    inner_function()
 
 
 def main():
