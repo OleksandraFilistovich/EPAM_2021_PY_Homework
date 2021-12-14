@@ -23,10 +23,16 @@ sum_list(3, 4, 5)
 >>> "Current result = '345'"
 """
 
+memory = 'None'
+
 
 def remember_result(fn):
-    # Your code
-    pass
+    def wrapper(*args):
+        global memory
+        print(f"Last result = '{memory}'")
+        memory = fn(*args)
+        return memory
+    return wrapper
 
 
 @remember_result
